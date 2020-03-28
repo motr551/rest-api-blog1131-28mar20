@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+<p>......index.ejs.....</p>
+<div class="ui main center container">
+  <div class="ui huge header">
+		<h1>RESTful Blog</h1>
+		<!-- <p>index.ejs 1</p> -->
+		<div class="ui top attached segment">
+			<!-- <p>index.ejs 2</p> -->
+			<div class="ui divided items">
+				
+				<% blogs.forEach(function(blog){ %>
+					<!-- <p><%= blog %></p> -->
+					<div class="item">
+						<!-- <p>index.ejs 3</p> -->
+						<div class="image">
+							<!-- <p>....image data string....</p> -->
+							<p><%= blog.image %></p>
+
+							<img src="<%= blog.image %>" style='width:10%; height:10%'>
+						</div>
+						<div class="content">
+							<!-- <p>....title data string....</p> -->
+							<a class="header" href="/blogs/<%= blog._id %>"><%= blog.title %>: /blogs/<%= blog._id %></a>
+							<P></P>
+							<div class="meta">
+								<span><%= blog.created.toDateString() %></span>
+							</div>
+							<div class="description">
+								<!-- <p>....body data string....</p> -->
+								<p><%= blog.body%></p>
+							</div>
+							<div class="extra">
+								<a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
+										Read More : /blogs/<%= blog._id %>
+								</a>
+								<p>   ...</p>
+							</div>
+						</div>
+					</div>
+				<% }) %>
+			</div>
+		</div>
+  </div>
+</div>
+
+<% include ./partials/footer %>
